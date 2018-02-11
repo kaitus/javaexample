@@ -9,13 +9,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class calculatortest {
+	
+	static calculadora cal;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
+		cal = new calculadora();
+		System.out.println("before");
 	}
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
+		System.out.println("after");
 	}
 
 	@BeforeEach
@@ -27,8 +32,21 @@ class calculatortest {
 	}
 
 	@Test
-	void testsuma() {
-		fail("Not yet implemented");
+	public void testsuma() {
+		int valorA = 2;
+		int valorB = 2;
+		int resultado = cal.suma(valorA, valorB);
+		System.out.println(resultado);
+		assertEquals(4, resultado);
+	}
+
+	@Test
+	public void testresta() {
+		int valorA = 2;
+		int valorB = 2;
+		int resultado = cal.resta(valorA, valorB);
+		System.out.println(resultado);
+		assertEquals(0, resultado);
 	}
 
 }
